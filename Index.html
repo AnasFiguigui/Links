@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anas Figuigui</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quantico:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="section">
+      <header>
+        <!-- <i class="bx bxl-apple bx-rotate-90" id="apple"></i> -->
+        <h1>Anas Figuigui</h1>
+        <img src="./comp.png" alt="comp" class="one" />
+        <img src="./question.svg" alt="question" class="two" />
+      </header>
+      <div class="footer">
+        <span class="start">Start</span>
+        <div class="clock">
+          <img src="./speaker.svg" alt="comp" class="speaker" />
+          <div id="MyClockDisplay" class="clockdetails" onload="showTime()"></div>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="progressbar">
+      <span id="loading"></span>
+    </div> -->
+
+        <figure class="iconone">
+            <a href="https://github.com/AnasFiguigui" target="_blank"><img id="five" alt=""/></a>
+            <figcaption class="of">Github</figcaption>
+        </figure>
+        <figure class="iconfour">
+          <a href="https://www.instagram.com/_anas_figuigui.__._/" target="_blank"><img id="one" alt=""/></a>
+          <figcaption class="ca">Instagram</figcaption>
+      </figure>
+        <figure class="icontwo">
+            <a href="https://anasfiguigui.github.io/Portfolio/" target="_blank"><img id="six" alt=""/></a>
+            <figcaption>Portfolio</figcaption>
+        </figure>
+        <figure class="iconthree">
+            <a href="https://discord.gg/zubjBBaE" target="_blank"><img id="three" alt=""/></a>
+            <figcaption>Discord</figcaption>
+        </figure>
+
+        <figure class="iconfive">
+            <a href="https://open.spotify.com/user/314wg3netrfr6f2d7opltajhhqzm?si=42ddcdf2b3d7449d" target="_blank"><img id="two" alt=""/></a>
+            <figcaption>Spotify</figcaption>
+        </figure>
+        <figure class="iconsix">
+            <a href="#" target="_blank"><img id="four" alt=""/></a>
+            <figcaption>Cash-app</figcaption>
+        </figure>
+        <img id="nohem" alt="nohem"/>
+
+    <script>
+      function showTime() {
+        var date = new Date();
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+
+        if (h == 0) {
+          h = 12;
+        }
+
+        if (h > 12) {
+          h = h - 12;
+        }
+
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        var time = h + ":" + m + ":" + s;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+
+        setTimeout(showTime, 1000);
+      }
+
+      showTime();
+    </script>
+  </body>
