@@ -31,7 +31,7 @@ video {
     container */
   overflow: hidden;
 
-  /* Centering the container's content vertically 
+  /* Centering container's content vertically 
     and horizontally */
   text-align: center;
   display: flex;
