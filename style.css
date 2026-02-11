@@ -1,12 +1,107 @@
+@media (max-width: 700px) {
+  /* Hide XP wallpaper image on mobile */
+  #nohem {
+    display: none !important;
+  }
+  /* Remove icon background on mobile */
+  figure {
+    background: none !important;
+    box-shadow: none !important;
+  }
+}
+/* XP window popup */
+.xp-window {
+  position: fixed;
+  min-width: 320px;
+  max-width: 420px;
+  min-height: 180px;
+  background: #c0c0c0;
+  border: 2px solid #808080;
+  border-radius: 0;
+  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #808080;
+  z-index: 300;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+  animation: win97Pop 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.xp-window-header {
+  background: #000080;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5em 0.8em;
+  border-radius: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+  font-size: 1em;
+}
+.xp-close {
+  background: #c0c0c0;
+  border: 2px solid #808080;
+  color: #000;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 0;
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
+  margin-left: 0.5em;
+  box-shadow: 1px 1px 0 #fff, 2px 2px 0 #808080;
+  transition: background 0.2s, color 0.2s;
+}
+.xp-close:hover {
+  background: #808080;
+  color: #fff;
+}
+.xp-window-content {
+  padding: 0.8em;
+  background: #fff;
+  border-top: 2px solid #808080;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+}
+.xp-window-content ul {
+  list-style: none;
+  padding: 0;
+}
+.xp-window-content li {
+  margin-bottom: 0.5em;
+}
+.xp-window-content a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 0.2em 0.5em;
+  border: 1px solid #c0c0c0;
+  border-radius: 0;
+  background: #e7e7e7;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+.xp-window-content a:hover {
+  background: #000080;
+  color: #fff;
+}
+@keyframes win97Pop {
+  0% { opacity: 0; transform: scale(0.7) translateY(30px); }
+  60% { opacity: 1; transform: scale(1.1) translateY(-10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
 *,
-html {
+html,
+* {
   margin: 0;
   padding: 0;
   font-family: "Quantico", sans-serif;
-  height: 100%;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 body {
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
   background-image: url(windows.jpg);
 }
 video {
@@ -38,18 +133,286 @@ video {
   align-items: center;
   justify-content: center;
 }
+/* XP taskbar */
 .section {
   height: 100vh;
   background-image: url(windows.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-color:rgba(1,130,129); */
+  position: relative;
 }
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 54px;
+  background: #c0c0c0;
+  border-top: 2px solid #808080;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #808080;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+}
+.start {
+  background: #c0c0c0;
+  color: #000;
+  font-weight: bold;
+  font-size: 1em;
+  border: 2px solid #808080;
+  border-radius: 0;
+  padding: 0.3em 1.2em;
+  margin-left: 1em;
+  cursor: pointer;
+  /* Removed white border */
+  box-shadow: 2px 2px 0 #808080;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+  transition: background 0.2s, color 0.2s;
+  min-width: 70px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.start:hover {
+  background: #000080;
+  color: #fff;
+}
+.clock {
+  margin-left: auto;
+  margin-right: 1.5em;
+  display: flex;
+  align-items: center;
+  background: #e7e7e7;
+  border: 2px solid #808080;
+  border-radius: 0;
+  padding: 0.2em 0.8em;
+  font-size: 1em;
+  box-shadow: 1px 1px 0 #fff, 2px 2px 0 #808080;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+}
+.speaker {
+  height: 24px;
+  width: 24px;
+  margin-right: 0.5em;
+}
+.clockdetails {
+  font-size: 1em;
+  font-weight: bold;
+  color: #000;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  font-weight: 900;
+  margin-top: 0em;
+  margin-left: 0.2em;
+}
+/* Start menu */
+.start-menu {
+  position: fixed;
+  left: 1em;
+  bottom: 54px;
+  width: 220px;
+  background: #c0c0c0;
+  border: 2px solid #808080;
+  border-radius: 0;
+  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #808080;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+}
+.start-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.start-menu-header {
+  font-weight: bold;
+  color: #fff;
+  padding: 0.5em 0.8em 0.3em 0.8em;
+  border-bottom: 2px solid #808080;
+  background: #000080;
+  border-radius: 0;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+}
+.start-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5em 0.5em 0.5em 1em;
+}
+.start-menu li {
+  margin-bottom: 0.5em;
+}
+.start-menu a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 0.2em 0.5em;
+  border: 1px solid #c0c0c0;
+  border-radius: 0;
+  background: #e7e7e7;
+  font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+.start-menu a:hover {
+  background: #000080;
+  color: #fff;
+}
+/* Desktop icons */
+/* Desktop icons */
+.desktop-icons {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 120px);
+  z-index: 10;
+}
+.icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2em;
+  width: 100%;
+  min-height: 60vh;
+}
+figure {
+  display: inline-block;
+  position: absolute;
+  width: 25%;
+  text-align: center;
+  border-radius: 15px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+figure:hover {
+  box-shadow: none;
+  transform: scale(1.07);
+}
+figcaption {
+  margin-top: -0.3em;
+  font-size: 1.4em;
+  color: #fff;
+  text-shadow: 1px 1px 2px #1a4a7a;
+}
+.of {
+  margin-top: -0.4em;
+}
+.ca {
+  margin-top: -0.5em;
+}
+/* Icon images */
+/* Icon images */
+#one, #two, #three, #four, #five, #six {
+  height: 5em;
+  max-width: 5em;
+}
+#five {
+  height: 4.7em;
+  max-width: 4.7em;
+}
+#six {
+  height: 4.7em;
+  max-width: 4.7em;
+}
+/* Adjust hover effect to match new size */
+#one:hover, #two:hover, #three:hover, #four:hover, #five:hover, #six:hover {
+  filter: brightness(1.2) drop-shadow(0 2px 8px #3a6ea5);
+  transform: scale(1.12);
+}
+/* XP wallpaper image */
+#nohem {
+  content: url(./merge2.jpg);
+  height: 29.5em;
+  position: absolute;
+  width: 20.3125em;
+  top: 16%;
+  right: 12%;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(58,110,165,0.18);
+  transition: box-shadow 0.3s;
+}
+#nohem:hover {
+  box-shadow: 0 16px 48px rgba(58,110,165,0.28);
+}
+/* Smooth icon pop-in */
+.desktop-icons figure {
+  animation: iconPop 0.7s cubic-bezier(.68,-0.55,.27,1.55) both;
+}
+@keyframes iconPop {
+  0% { opacity: 0; transform: scale(0.7) translateY(30px); }
+  60% { opacity: 1; transform: scale(1.1) translateY(-10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+/* Responsive tweaks (keep your breakpoints) */
 header {
   width: 100%;
   background-color: #e7e7e7;
   height: 9vh;
   border-bottom: 0.5em outset;
+}
+
+@media (max-width: 700px) {
+  .desktop-icons {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    min-height: 60vh;
+    padding: 1em 0;
+  }
+  .icon-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2em;
+    min-height: 40vh;
+  }
+  figure {
+    position: static;
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 0.7em 1em;
+    box-shadow: 0 2px 8px rgba(58,110,165,0.08);
+  }
+  figure img {
+    margin-right: 1em;
+    height: 2.5em;
+    max-width: 2.5em;
+  }
+  figcaption {
+    font-size: 1.1em;
+    color: #222;
+    text-shadow: none;
+    margin-top: 0;
+    margin-left: 0.5em;
+  }
+  .taskbar {
+    height: 44px;
+    font-size: 0.9em;
+    padding: 0 0.5em;
+  }
+  .clock {
+    font-size: 0.9em;
+    padding: 0.1em 0.5em;
+    margin-right: 0.5em;
+  }
+  .start-menu {
+    width: 90vw;
+    left: 5vw;
+    bottom: 44px;
+  }
 }
 #apple {
   float: left;
@@ -112,13 +475,7 @@ h1 {
   margin-top: 0.4em;
   margin-bottom: 0.2em;
 }
-.clockdetails {
-  font-size: 1.5em;
-  letter-spacing: 1px;
-  font-weight: 900;
-  margin-top: 0em;
-  margin-left: 0.2em;
-}
+/* Removed duplicate .clockdetails selector, merged above */
 #progressbar {
   height: 26px;
   position: absolute;
@@ -201,459 +558,6 @@ figcaption {
 }
 #one {
   content: url(./icons/camera3.png);
-  height: 5em;
-}
-#two {
-  content: url(./icons/download.png);
-  height: 5.5em;
-}
-#three {
-  content: url(./icons/phone.png);
-  height: 5em;
-}
-#four {
-  content: url(./icons/recycle.png);
-  height: 5em;
-}
-#five {
-  content: url(./icons/computer.png);
-  height: 4.5em;
-}
-#six {
-  content: url(./icons/net.png);
-  height: 4em;
-}
-#nohem {
-  content: url(./merge2.jpg);
-  height: 29.5em;
-  position: absolute;
-  width: 20.3125em;
-  top: 16%;
-  right: 12%;
-}
-@keyframes load {
-  0% {
-    width: 2%;
-  }
-  10% {
-    width: 10%;
-  }
-}
-@media (max-width: 915px) {
-  video {
-    /** Simulationg background-size: cover */
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .video-wrapper {
-    /* Telling our absolute positioned video to 
-      be relative to this element */
-    position: relative;
-  
-    width: 100%;
-    height: 82vh;
-  
-    /* Will not allow the video to overflow the 
-      container */
-    overflow: hidden;
-  
-    /* Centering the container's content vertically 
-      and horizontally */
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .one {
-    margin-top: 1.75em;
-    margin-right: 1.3em;
-  }
-  .two {
-    margin-top: 1.8em;
-    margin-right: 0.9em;
-  }
-  #apple {
-    margin-left: -0.2em;
-  }
-  h1 {
-    margin-top: 0.95em;
-  }
-  .footer {
-    height: 7vh;
-  }
-  .clock {
-    height: 5vh;
-    float: right;
-    background-color: #e7e7e7;
-    color: #000;
-    border: 0.1em inset;
-    margin-top: 0.25em;
-  }
-  .clockdetails {
-    font-size: 1.5em;
-    letter-spacing: 1px;
-    font-weight: 900;
-    margin-top: 0.2em;
-    margin-left: 0.2em;
-  }
-  .start {
-    float: left;
-    font-size: 1.4em;
-    border: 0.2em outset;
-    height: 3vh;
-    padding: 0.35em;
-    margin-top: 0.2em;
-    margin-bottom: 0.1em;
-    margin-left: 0.2em;
-  }
-  .speaker {
-    height: 7vh;
-    width: 7vw;
-    float: right;
-    margin-left: 0.35em;
-    margin-right: 0.25em;
-    margin-top: -0.5em;
-  }
-  .iconone {
-    width: 30%;
-    left: 15%;
-    top: 21%;
-    height: 14%;
-  }
-  .icontwo {
-    width: 28%;
-    height: 14%;
-    bottom: 9%;
-    left: 16%;
-  }
-  .iconthree {
-    height: 13%;
-    top: 61%;
-    left: 7%;
-  }
-  .iconfour {
-    height: 15%;
-    top: 18%;
-    left: initial;
-    right: 7%;
-    width: 30%;
-  }
-  .iconfive {
-    width: 27%;
-    height: 13%;
-    top: 40%;
-    left: 9%;
-  }
-  .iconsix {
-    width: 30%;
-    height: 12.5%;
-    bottom: 12%;
-    left: 58%;
-  }
-  #nohem {
-    content: url(./merge2.jpg);
-    height: 26.8181818182em;
-    width: 18.4659090909em;
-    top: 34%;
-    right: 15%;
-  }
-  
-#one {
-  content: url(./icons/camera3.png);
-  height: 7em;
-}
-#two {
-  content: url(./icons/download.png);
-  height: 7.5em;
-}
-#three {
-  content: url(./icons/phone.png);
-  height: 7em;
-}
-#four {
-  content: url(./icons/recycle.png);
-  height: 7em;
-}
-#five {
-  content: url(./icons/computer.png);
-  height: 6.5em;
-}
-#six {
-  content: url(./icons/net.png);
-  height: 6em;
-}
-}
-@media (max-width: 780px) {
-  
-  .iconone {
-    width: 30%;
-    left: 13%;
-    top: 21%;
-    height: 14%;
-  }
-  .icontwo {
-    width: 28%;
-    height: 14%;
-    bottom: 9%;
-    left: 14%;
-  }
-  .iconthree {
-    height: 11%;
-    top: 61%;
-    left: 5%;
-  }
-  .iconfour {
-    height: 15%;
-    top: 18%;
-    left: initial;
-    right: 6%;
-    width: 30%;
-  }
-  .iconfive {
-    width: 27%;
-    height: 12%;
-    top: 40%;
-    left: 7%;
-  }
-  .iconsix {
-    width: 30%;
-    height: 10.5%;
-    bottom: 12%;
-    left: 60%;
-  }
-  #nohem {
-    top: 30%;
-    right: 5%;
-        height: 24.5833333333em;
-    width: 16.9270833333em;
-  }
-  #one {
-    content: url(./icons/camera3.png);
-    height: 5em;
-  }
-  #two {
-    content: url(./icons/download.png);
-    height: 5.5em;
-  }
-  #three {
-    content: url(./icons/phone.png);
-    height: 5em;
-  }
-  #four {
-    content: url(./icons/recycle.png);
-    height: 5em;
-  }
-  #five {
-    content: url(./icons/computer.png);
-    height: 4.5em;
-  }
-  #six {
-    content: url(./icons/net.png);
-    height: 4em;
-  }
-}
-@media (max-width: 600px) {
-  #nohem {
-    height: 24.5833333333em;
-    width: 16.9270833333em;
-    top: 34%;
-    right: 5%;
-  }
-}
-@media (width: 540px) and (height: 720px){
-  #nohem {
-    height: 17.3529411765em;
-    width: 11.9485294118em;
-  }
-}
-@media (max-width: 450px) {
-  video {
-    /** Simulationg background-size: cover */
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .video-wrapper {
-    /* Telling our absolute positioned video to 
-      be relative to this element */
-    position: relative;
-  
-    width: 100%;
-    height: 82vh;
-  
-    /* Will not allow the video to overflow the 
-      container */
-    overflow: hidden;
-  
-    /* Centering the container's content vertically 
-      and horizontally */
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .one {
-    margin-top: 1.75em;
-    margin-right: 1.3em;
-  }
-  .two {
-    margin-top: 1.8em;
-    margin-right: 0.9em;
-  }
-  #apple {
-    margin-left: -0.2em;
-  }
-  h1 {
-    margin-top: 0.95em;
-  }
-  .footer {
-    height: 7vh;
-  }
-  .clock {
-    height: 5vh;
-    float: right;
-    background-color: #e7e7e7;
-    color: #000;
-    border: 0.1em inset;
-    margin-top: 0.25em;
-  }
-  .clockdetails {
-    font-size: 1.5em;
-    letter-spacing: 1px;
-    font-weight: 900;
-    margin-top: 0.2em;
-    margin-left: 0.2em;
-  }
-  .start {
-    float: left;
-    font-size: 1.4em;
-    border: 0.2em outset;
-    height: 3vh;
-    padding: 0.35em;
-    margin-top: 0.2em;
-    margin-bottom: 0.1em;
-    margin-left: 0.2em;
-  }
-  .speaker {
-    height: 7vh;
-    width: 7vw;
-    float: right;
-    margin-left: 0.35em;
-    margin-right: 0.25em;
-    margin-top: -0.5em;
-  }
-  .iconone {
-    width: 30%;
-    left: 13%;
-    top: 21%;
-    height: 14%;
-  }
-  .icontwo {
-    width: 28%;
-    height: 14%;
-    bottom: 9%;
-    left: 14%;
-  }
-  .iconthree {
-    height: 11%;
-    top: 61%;
-    left: 5%;
-  }
-  .iconfour {
-    height: 15%;
-    top: 18%;
-    left: initial;
-    right: 6%;
-    width: 30%;
-  }
-  .iconfive {
-    width: 27%;
-    height: 12%;
-    top: 40%;
-    left: 7%;
-  }
-  .iconsix {
-    width: 30%;
-    height: 10.5%;
-    bottom: 10.5%;
-    left: 60%;
-  }
-  #nohem {
-    content: url(./merge2.jpg);
-    height: 19.6666666667em;
-    width: 13.5416666667em;
-    top: 34%;
-    right: 5%;
-  }
-}
-@media (max-width: 800px) {
-  .iconone {
-    height: 16%;
-  }
-  .icontwo {
-    height: 16%;
-  }
-  .iconthree {
-    top: 58%;
-    height: 15%;
-  }
-  .iconfive {
-    top: 37%;
-    left:3%;
-    width: 30%;
-    height: 16%;
-  }
-  .iconsix {
-    height: 15.5%;
-  }
-}
-@media (max-width: 360px) {
-  #nohem {
-    content: url(./merge2.jpg);
-    height: 17.3529411765em;
-    width: 11.9485294118em;
-    top: 34%;
-    right: 5%;
-  }
-  .iconone {
-    height: 16%;
-  }
-  .icontwo {
-    height: 16%;
-  }
-  .iconthree {
-    top: 58%;
-    height: 15%;
-  }
-  .iconfive {
-    top: 37%;
-    left:3%;
-    width: 30%;
-    height: 18%;
-  }
-  .iconsix {
-    height: 15.5%;
-  }
-}
-@media (max-height: 700px) {
-  #nohem {
-    height: 14.75em;
-    width: 10.6907894737em;
-    top: 35%;
-    right: 5%;
-  }
-  
-#one {
-  content: url(./icons/camera3.png);
   height: 4.5em;
 }
 #two {
@@ -676,7 +580,6 @@ figcaption {
   content: url(./icons/net.png);
   height: 3.5em;
 }
-  .iconsix {
-    height: 14.5%;
-  }
+.iconsix {
+  height: 14.5%;
 }

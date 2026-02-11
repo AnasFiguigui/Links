@@ -1,8 +1,11 @@
+<!-- XP-like draggable window popup -->
+<!-- Remove the popup window markup -->
+<!-- JavaScript moved to external file -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Removed duplicate meta charset from body -->
     <title>Anas Figuigui</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,82 +18,74 @@
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <!-- Move script.js to end of body for proper DOM access -->
   </head>
   <body>
     <!-- git branch master -->
     <!-- new modifications are coming for sure :') 2022/10/06 -->
     <div class="section">
-      <header>
-        <!-- <i class="bx bxl-apple bx-rotate-90" id="apple"></i> -->
+      <header role="banner">
         <h1>Anas Figuigui</h1>
-        <img src="./comp.png" alt="comp" class="one" />
-        <img src="./question.svg" alt="question" class="two" />
+        <img src="./comp.png" alt="Computer icon" class="one" />
+        <img src="./question.svg" alt="Help icon" class="two" />
       </header>
-      <div class="footer">
-        <span class="start">Start</span>
+      <nav class="taskbar" aria-label="Windows XP Taskbar">
+        <button class="start" id="startBtn" aria-label="Open Start Menu" tabindex="0">Start</button>
         <div class="clock">
-          <img src="./speaker.svg" alt="comp" class="speaker" />
-          <div id="MyClockDisplay" class="clockdetails" onload="showTime()"></div>
+          <img src="./speaker.svg" alt="Speaker icon" class="speaker" />
+          <div id="MyClockDisplay" class="clockdetails"></div>
         </div>
+      </nav>
+      <div id="startMenu" class="start-menu" aria-hidden="true">
+        <div class="start-menu-header">Welcome, Anas!</div>
+        <ul id="startMenuLinks"></ul>
       </div>
     </div>
-    <!-- <div id="progressbar">
-      <span id="loading"></span>
-    </div> -->
 
-        <figure class="iconone">
-            <a href="https://github.com/AnasFiguigui" target="_blank"><img id="five" alt=""/></a>
+    <main>
+      <section class="desktop-icons" aria-label="Desktop icons">
+        <div class="icon-grid">
+          <figure class="iconone">
+            <a href="https://github.com/AnasFiguigui" target="_blank" rel="noopener" aria-label="Github">
+              <img id="five" src="assets/icons/computer.png" alt="Github icon" />
+            </a>
             <figcaption class="of">Github</figcaption>
-        </figure>
-        <figure class="iconfour">
-          <a href="https://www.instagram.com/_anas_figuigui.__._/" target="_blank"><img id="one" alt=""/></a>
-          <figcaption class="ca">Instagram</figcaption>
-      </figure>
-        <figure class="icontwo">
-            <a href="https://anasfiguigui.github.io/Portfolio/" target="_blank"><img id="six" alt=""/></a>
+          </figure>
+          <figure class="iconfour">
+            <a href="https://www.instagram.com/anasfiguigui/" target="_blank" rel="noopener" aria-label="Instagram">
+              <img id="one" src="assets/icons/camera3.png" alt="Instagram icon" />
+            </a>
+            <figcaption class="ca">Instagram</figcaption>
+          </figure>
+          <figure class="icontwo">
+            <a href="https://anasfiguigui.xyz/" target="_blank" rel="noopener" aria-label="Portfolio">
+              <img id="six" src="assets/icons/net.png" alt="Portfolio icon" />
+            </a>
             <figcaption>Portfolio</figcaption>
-        </figure>
-        <figure class="iconthree">
-            <a href="https://discord.gg/zubjBBaE" target="_blank"><img id="three" alt=""/></a>
+          </figure>
+          <figure class="iconthree">
+            <a href="https://discord.gg/zubjBBaE" target="_blank" rel="noopener" aria-label="Discord">
+              <img id="three" src="assets/icons/phone.png" alt="Discord icon" />
+            </a>
             <figcaption>Discord</figcaption>
-        </figure>
-
-        <figure class="iconfive">
-            <a href="https://open.spotify.com/user/314wg3netrfr6f2d7opltajhhqzm?si=42ddcdf2b3d7449d" target="_blank"><img id="two" alt=""/></a>
+          </figure>
+          <figure class="iconfive">
+            <a href="https://open.spotify.com/user/314wg3netrfr6f2d7opltajhhqzm?dl_branch=1&nd=1" target="_blank" rel="noopener" aria-label="Spotify">
+              <img id="two" src="assets/icons/download.png" alt="Spotify icon" />
+            </a>
             <figcaption>Spotify</figcaption>
-        </figure>
-        <figure class="iconsix">
-            <a href="#" target="_blank"><img id="four" alt=""/></a>
-            <figcaption>Cash-app</figcaption>
-        </figure>
-        <img id="nohem" alt="nohem"/>
+          </figure>
+          <figure class="iconsix">
+            <a href="https://www.linkedin.com/in/anas-figuigui/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <img id="four" src="assets/icons/recycle.png" alt="LinkedIn icon" />
+            </a>
+            <figcaption>LinkedIn</figcaption>
+          </figure>
+        </div>
+        <img id="nohem" alt="XP wallpaper" />
+      </section>
+    </main>
 
-    <script>
-      function showTime() {
-        var date = new Date();
-        var h = date.getHours(); // 0 - 23
-        var m = date.getMinutes(); // 0 - 59
-        var s = date.getSeconds(); // 0 - 59
-
-        if (h == 0) {
-          h = 12;
-        }
-
-        if (h > 12) {
-          h = h - 12;
-        }
-
-        h = h < 10 ? "0" + h : h;
-        m = m < 10 ? "0" + m : m;
-        s = s < 10 ? "0" + s : s;
-
-        var time = h + ":" + m + ":" + s;
-        document.getElementById("MyClockDisplay").innerText = time;
-        document.getElementById("MyClockDisplay").textContent = time;
-
-        setTimeout(showTime, 1000);
-      }
-
-      showTime();
-    </script>
+    <script src="script.js"></script>
   </body>
+</html>
